@@ -1,6 +1,4 @@
-package com.example.myapplication.base.data.local
-
-import android.content.Context
+package com.example.myapplication.data.local
 
 //class SharedPreferences(context: Context) {
 
