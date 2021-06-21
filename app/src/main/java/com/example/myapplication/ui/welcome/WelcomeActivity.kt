@@ -6,6 +6,7 @@ import android.view.View
 import com.example.myapplication.databinding.ActivityWelcomeBinding
 import com.example.myapplication.base.BaseActivity
 import com.example.myapplication.base.BaseViewModel
+import com.example.myapplication.data.local.SharedPreference
 import com.example.myapplication.ui.choose_path.ChoosePathActivity
 import com.example.myapplication.utils.showToast
 
@@ -26,8 +27,9 @@ class WelcomeActivity : BaseActivity<WelcomeViewModel, ActivityWelcomeBinding>(
             if (binding.etEnterName.text.toString().isEmpty()) {
                 showToast("Please enter your name")
             } else {
-                //Добавить сохранение имени в SharedPref
+                SharedPreference.setName(binding.etEnterName.toString())
                 ChoosePathActivity.startActivity(this)
+//                binding.tvName.text=SharedPreference.getName()
             }
         }
 

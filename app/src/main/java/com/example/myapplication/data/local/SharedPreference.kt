@@ -1,5 +1,30 @@
 package com.example.myapplication.data.local
 
-//class SharedPreferences(context: Context) {
+import android.content.Context
+import android.content.SharedPreferences
 
- //   private val sharedPreferences: SharedPreferences = context.getSharedPreferences
+object SharedPreference {
+
+    private const val PREFERENCE_NAME = "FitnessPreference"
+    private const val NAME = "NAME"
+
+    private var preference: SharedPreferences? = null
+
+    fun init(context: Context) {
+        preference = context.getSharedPreferences(
+            PREFERENCE_NAME, Context.MODE_PRIVATE
+        )
+    }
+
+    fun setName(data: String) {
+        preference?.edit()?.putString(
+            NAME, data
+        )?.apply()
+    }
+
+    fun getName(): String? {
+        return preference?.getString(
+            NAME, null
+        )
+    }
+}

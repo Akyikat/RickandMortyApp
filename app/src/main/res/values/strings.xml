@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Rick and Morty App</string>
+    <string name="rick_and_morty_episodes">Rick and Morty Episodes</string>
+    <string name="rick_and_morty_pop_quiz">Rick and Morty Pop-Quiz</string>
+    <string name="watch_now">WATCH NOW</string>
+    <string name="play_now">PLAY NOW</string>
+    <string name="app_name">Rick and Morty</string>
 </resources>

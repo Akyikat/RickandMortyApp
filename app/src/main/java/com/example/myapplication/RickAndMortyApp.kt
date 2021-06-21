@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.app.Application
+import com.example.myapplication.data.local.SharedPreference
 import com.example.myapplication.di.networkRepository
 import com.example.myapplication.di.repositoryModule
 import com.example.myapplication.di.viewModelModule
@@ -13,6 +14,7 @@ class RickAndMortyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        SharedPreference.init(applicationContext)
         startKoin{
             androidLogger()
             androidContext(this@RickAndMortyApp)
@@ -26,3 +28,4 @@ class RickAndMortyApp : Application() {
         loadKoinModules(listOf(viewModelModule, repositoryModule, networkRepository))
     }
 }
+
