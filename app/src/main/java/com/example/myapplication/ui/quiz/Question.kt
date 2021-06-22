@@ -1,7 +1,5 @@
 package com.example.myapplication.ui.quiz
 
-import android.media.Image
-
 data class Question (
     val id: Int,
     val question: String,
@@ -11,5 +9,4 @@ data class Question (
     val optionThree: String,
     val optionFour: String,
     val correctAnswer: Int
-
  )
