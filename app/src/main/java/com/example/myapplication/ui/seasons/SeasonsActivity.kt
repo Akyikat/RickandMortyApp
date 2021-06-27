@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.base.BaseActivity
 import com.example.myapplication.base.BaseViewModel
 import com.example.myapplication.data.model.getVideo
-import com.example.myapplication.databinding.ActivitySeasonsBinding
+import com.example.myapplication.databinding.ActivitySeasonsListBinding
 
 class SeasonsViewModel : BaseViewModel() {
 
 }
-class SeasonsActivity : BaseActivity<SeasonsViewModel, ActivitySeasonsBinding>(
+class SeasonsActivity : BaseActivity<SeasonsViewModel, ActivitySeasonsListBinding>(
     SeasonsViewModel::class
 ) {
-    override fun getViewBinding(): ActivitySeasonsBinding = ActivitySeasonsBinding.inflate(layoutInflater)
+    override fun getViewBinding(): ActivitySeasonsListBinding = ActivitySeasonsListBinding.inflate(layoutInflater)
 
     private lateinit var adapter: SeasonsAdapter
 
@@ -24,8 +24,8 @@ class SeasonsActivity : BaseActivity<SeasonsViewModel, ActivitySeasonsBinding>(
 
     private fun setupAdapter() {
         adapter = SeasonsAdapter()
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.rvPlayground.adapter = adapter
+        binding.rvPlayground.layoutManager = LinearLayoutManager(this)
         adapter.addItems(getVideo())
     }
 

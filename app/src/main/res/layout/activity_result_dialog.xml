@@ -1,8 +1,12 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/btn_default_option"
     android:orientation="vertical"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
     android:layout_gravity="center">
 
 
@@ -29,6 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:paddingHorizontal="8dp"
+            android:gravity="center"
             android:fontFamily="@font/roboto_medium"
             android:textSize="12sp"
             android:text="@string/excellent_result"

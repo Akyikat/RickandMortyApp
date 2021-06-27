@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".RickAndMortyApp"
         android:allowBackup="true"
@@ -22,6 +23,7 @@
         <activity android:name=".ui.welcome.WelcomeActivity"/>
         <activity android:name=".ui.choose_path.ChoosePathActivity"/>
         <activity android:name=".ui.seasons.SeasonsActivity"/>
+        <activity android:name=".ui.quiz.QuizListActivity"/>
         <activity android:name=".ui.episodes.EpisodesPlayerActivity"/>
 
         <activity android:name="com.example.myapplication.ui.quiz.QuizQuestionActivity"

@@ -5,8 +5,8 @@ import android.content.Intent
 import com.example.myapplication.base.BaseActivity
 import com.example.myapplication.base.BaseViewModel
 import com.example.myapplication.databinding.ActivityChoosePathBinding
+import com.example.myapplication.ui.quiz.QuizListActivity.Companion.startQuizListActivity
 import com.example.myapplication.ui.seasons.SeasonsActivity.Companion.startSeasonsActivity
-import com.example.myapplication.ui.quiz.QuizQuestionActivity.Companion.startQuizActivity
 
 class ChoosePathViewModel : BaseViewModel() {
 
@@ -19,7 +19,7 @@ class ChoosePathActivity : BaseActivity<ChoosePathViewModel, ActivityChoosePathB
 
     override fun setupViews() {
         binding.ibEpisodes.setOnClickListener { startSeasonsActivity(this) }
-        binding.ibQuiz.setOnClickListener { startQuizActivity(this) }
+        binding.ibQuiz.setOnClickListener { startQuizListActivity(this) }
     }
 
     override fun subscribeToLiveData() { }

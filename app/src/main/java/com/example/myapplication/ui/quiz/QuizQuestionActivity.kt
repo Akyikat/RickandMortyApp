@@ -21,7 +21,7 @@ class QuizQuestionActivity : BaseActivity<QuizQuestionViewModel, ActivityQuizQue
     class MyDialogFragment : DialogFragment() {}
 
     private var currentPosition = 0
-    private val questionList = Constants.getQuestions()
+    private val questionList = Constants.getQuestionsByTest(testId)
     private var question: Question = updateCurrentQuestion()
     private var userAnswer: Int? = null
     private var countOfCorrectAnswer = 0
@@ -147,7 +147,9 @@ class QuizQuestionActivity : BaseActivity<QuizQuestionViewModel, ActivityQuizQue
     override fun subscribeToLiveData() {}
 
     companion object {
-        fun startQuizActivity(activity: Activity) {
+        var testId: Int = 0
+        fun startQuizQuestionActivity(activity: Activity, id: Int) {
+            testId = id
             val intent = Intent(activity, QuizQuestionActivity::class.java)
             activity.startActivity(intent)
         }
