@@ -1,11 +1,12 @@
 package com.example.myapplication.ui.videoplayer
 
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.view.View
 import android.view.WindowManager
 import com.example.myapplication.base.BaseActivity
-import com.example.myapplication.base.BaseViewModel
 import com.example.myapplication.databinding.ActivityVideoPlayerBinding
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
@@ -17,8 +18,8 @@ import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 
-class VideoPlayerActivity : BaseActivity<BaseViewModel, ActivityVideoPlayerBinding>(
-    BaseViewModel::class
+class VideoPlayerActivity : BaseActivity<VideoPlayerViewModel, ActivityVideoPlayerBinding>(
+    VideoPlayerViewModel::class
 ) {
     private var url: String? = null
     private var simpleExoPlayer: SimpleExoPlayer? = null
@@ -37,7 +38,7 @@ class VideoPlayerActivity : BaseActivity<BaseViewModel, ActivityVideoPlayerBindi
             WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        url = item
+        url = "https://drive.google.com/file/d/1j0KLej8InlHAEd5lKaRdIRmR-Dg2Z8_N/view"
         val uri = Uri.parse(url)
 
         val loadControl = DefaultLoadControl()
@@ -104,6 +105,13 @@ class VideoPlayerActivity : BaseActivity<BaseViewModel, ActivityVideoPlayerBindi
 
         simpleExoPlayer?.playWhenReady = true
         simpleExoPlayer?.playbackState
+    }
+
+    companion object {
+        fun startVideoPlayerActivity(activity: Activity) {
+            val intent = Intent(activity, VideoPlayerActivity::class.java)
+            activity.startActivity(intent)
+        }
     }
 
     override fun subscribeToLiveData() {}

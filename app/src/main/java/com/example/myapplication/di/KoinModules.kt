@@ -1,6 +1,10 @@
 package com.example.myapplication.di
 
-import com.example.myapplication.base.BaseViewModel
+import com.example.myapplication.network.RetrofitClient
+import com.example.myapplication.network.provideHttpLoginingInterceptor
+import com.example.myapplication.network.provideOkHttpClient
+import com.example.myapplication.network.provideSeasonApi
+import com.example.myapplication.repository.SeasonsRepositoryImpl
 import com.example.myapplication.ui.choose_path.ChoosePathViewModel
 import com.example.myapplication.ui.splash.SplashViewModel
 import com.example.myapplication.ui.welcome.WelcomeViewModel
@@ -11,25 +15,21 @@ import org.koin.dsl.module
 
 
 val viewModelModule = module {
-    viewModel { SeasonsViewModel() }
+    viewModel { SeasonsViewModel(get()) }
     viewModel { SplashViewModel() }
     viewModel { WelcomeViewModel() }
     viewModel { QuizQuestionViewModel() }
-    viewModel { BaseViewModel() }
     viewModel { ChoosePathViewModel() }
 }
-
 val repositoryModule = module {
-//    factory { ProjectRepositorImpl(get()) }
-//    factory { TaskRepositoryImpl(get()) }
+    factory { SeasonsRepositoryImpl(get()) }
 }
-//
+
 val networkRepository = module {
-//    single { RetrofitClient(get()) }
-//    single { provideOkHttpClient(get()) }
-//    single { provideHttpLoginingInterceptor() }
-//    single { provideProjectApi(get()) }
-//    single { provideTasksApi(get()) }
+    single { RetrofitClient(get()) }
+    single { provideOkHttpClient(get()) }
+    single { provideHttpLoginingInterceptor() }
+    single { provideSeasonApi(get()) }
 }
 
 

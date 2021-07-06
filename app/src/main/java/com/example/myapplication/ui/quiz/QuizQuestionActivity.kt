@@ -4,15 +4,11 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.DialogFragment
 import com.example.myapplication.R
 import com.example.myapplication.base.BaseActivity
 import com.example.myapplication.databinding.ActivityQuizQuestionBinding
-import com.example.myapplication.utils.showToast
-import retrofit2.http.Body
 
 class QuizQuestionActivity : BaseActivity<QuizQuestionViewModel, ActivityQuizQuestionBinding>(
     QuizQuestionViewModel::class

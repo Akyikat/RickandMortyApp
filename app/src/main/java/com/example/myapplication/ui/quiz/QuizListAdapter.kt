@@ -13,7 +13,7 @@ class QuizListAdapter(private var listener: ClickListener): BaseAdapter() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val binding = ItemQuizContainerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return  QuizListViewHolder(binding)
+         return  QuizListViewHolder(binding)
     }
 
     override fun getItemCount(): Int {

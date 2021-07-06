@@ -6,11 +6,12 @@ import android.os.Looper
 import android.view.View
 import com.example.myapplication.databinding.ActivitySplashBinding
 import com.example.myapplication.base.BaseActivity
+import com.example.myapplication.base.BaseEvent
 import com.example.myapplication.base.BaseViewModel
 import com.example.myapplication.ui.choose_path.ChoosePathActivity
 import com.example.myapplication.ui.welcome.WelcomeActivity
 
-class SplashViewModel : BaseViewModel() {
+class SplashViewModel : BaseViewModel<BaseEvent>() {
 
 }
 

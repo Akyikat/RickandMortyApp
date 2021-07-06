@@ -7,13 +7,13 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import kotlin.reflect.KClass
 
 
-abstract class BaseActivity<VM : BaseViewModel, VB: androidx.viewbinding.ViewBinding>(
+abstract class BaseActivity<VM : ViewModel, VB: androidx.viewbinding.ViewBinding>(
     private val clazz: KClass<VM>
 ) : AppCompatActivity() {
 
     lateinit var binding: VB
     abstract fun getViewBinding(): VB
-    lateinit var viewModel: ViewModel
+    lateinit var viewModel: VM
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
