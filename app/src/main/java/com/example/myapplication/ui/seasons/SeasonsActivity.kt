@@ -14,11 +14,13 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class SeasonsActivity : BaseActivity<SeasonsViewModel, ActivitySeasonsListBinding>(
     SeasonsViewModel::class
-), SeasonClickListener {
+) {
     override fun getViewBinding(): ActivitySeasonsListBinding =
         ActivitySeasonsListBinding.inflate(layoutInflater)
 
-    private lateinit var adapter: SeasonsAdapter
+    private val adapter by lazy { SeasonsAdapter(){
+        goToDetails(it)
+    } }
 
     override fun setupViews() {
         viewModel = getViewModel(clazz = SeasonsViewModel::class)
@@ -27,7 +29,6 @@ class SeasonsActivity : BaseActivity<SeasonsViewModel, ActivitySeasonsListBindin
     }
 
     private fun setupAdapter() {
-        adapter = SeasonsAdapter(this)
         binding.rvPlayground.adapter = adapter
         binding.rvPlayground.layoutManager = LinearLayoutManager(this)
     }
@@ -50,7 +51,7 @@ class SeasonsActivity : BaseActivity<SeasonsViewModel, ActivitySeasonsListBindin
         }
     }
 
-    override fun onItemClick(item: Season) {
+    private fun goToDetails(item: Season) {
         val intent = Intent(this, EpisodeListActivity::class.java)
         intent.putExtra("SEASON_ID", item.id)
         startActivity(intent)

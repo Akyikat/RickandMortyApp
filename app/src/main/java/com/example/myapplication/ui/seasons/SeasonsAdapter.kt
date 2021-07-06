@@ -27,6 +27,7 @@ class SeasonsAdapter(private val listener: (item: Season)-> Unit): BaseAdapter()
 
     private fun setupGalleryViewHolder(holder: SeasonsViewHolder, position: Int) {
         val item = videoArray[position]
+
         holder.bind(item)
         holder.itemView.setOnClickListener {
             listener.invoke(item)
